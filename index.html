@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Dat Letta</title>
+  <!-- Bootstrap CSS -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <script defer src="js/app.js"></script>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Guess Dat Letta!!!</h1>
+        <p class="lead">This is a game where you get 10 guesses and you have to guess the correct letter that the Ghost
+          in the Shell has chosen</p>
+      </div>
+    </div>
+
+    <!-- Friendly User Msg -->
+    <div class="row">
+      <div class="col-lg-12">
+        <p class="intro-text text-center">Can you guess what letter I am thinking of????</p>
+        <br>
+
+        <p class="text-center">
+          <strong><i>Make the right choice!!! (insert evil laugh here)</i></strong>
+        </p>
+      </div>
+    </div>
+
+    <br><br>
+
+    <!-- User guesses so far -->
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <!-- I will use JS to insert the letters that are guessed incorrectly here -->
+        Your Guesses so far: <span id="user-guesses"></span>
+      </div>
+    </div>
+
+    <!-- Score Tracker -->
+    <div class="row">
+      <div class="col-lg-4 text-center">Wins: <span id="wins"></span></div>
+      <div class="col-lg-4 text-center">Losses: <span id="losses"></span></div>
+      <div class="col-lg-4 text-center">Guesses Left: <span id="guesses-left"></span></div>
+    </div>
+  </div>
+
+</body>
+
+</html>
