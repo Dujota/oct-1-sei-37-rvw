@@ -41,8 +41,10 @@ const userGuessesElement = () => (document.getElementById('user-guesses').innerH
 /**
  * @prop {Utility Functions}
  */
-
 const displayMessage = message => alert(message);
+const computerChoice = () => {
+  randomLetter = letters[Math.floor(Math.random() * letters.length)]; // letters[22]
+};
 
 /**
  * @prop {Event Listeners}
@@ -109,6 +111,7 @@ const initializeGame = () => {
     guessesLeft = 10;
   }
 
+  computerChoice();
   winsElement();
   lossesElement();
   userGuessesElement();
