@@ -12,7 +12,7 @@
  * -- if wrong AND they don't have any guesses left: show losing message & update the losses + reset/initialize the game again
  *
  *
- * If right: show a winning msg, pdate the wins and reset/initialize the game
+ * If right: show a winning msg, update the wins and reset/initialize the game
  *
  *
  */
@@ -60,6 +60,7 @@ document.addEventListener('keypress', function(event) {
    */
   const userChoice = event.key.toLowerCase(); // always make my data consistent
 
+  // Check for a valid turn
   if (!letters.includes(userChoice)) {
     // exclude numbers and special chars
     displayMessage('No special characters or numbers, please pick a letter from the alphabet');
@@ -79,6 +80,18 @@ document.addEventListener('keypress', function(event) {
     userGuessesElement();
     guessesLeftElement();
   }
+
+  // Check for a Winner
+  if (randomLetter === userChoice) {
+    wins += 1;
+    displayMessage("Way to go!!!! You're a freaking mind reader");
+
+    initializeGame();
+  } else if (guessesLeft === 0) {
+    displayMessage('Ooooops you ran out of Guesses!!!!');
+    losses += 1;
+    initializeGame();
+  }
 });
 
 const initializeGame = () => {
@@ -90,6 +103,11 @@ const initializeGame = () => {
    *
    * B after win/loss
    */
+
+  if (userGuesses.length > 0 && guessesLeft !== 10) {
+    userGuesses = [];
+    guessesLeft = 10;
+  }
 
   winsElement();
   lossesElement();
