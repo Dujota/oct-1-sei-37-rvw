@@ -35,19 +35,66 @@ const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
  */
 const winsElement = () => (document.getElementById('wins').innerHTML = wins);
 const lossesElement = () => (document.getElementById('losses').innerHTML = losses);
-const guessesLeftElement = () => (document.getElementById('guessesLeft').innerHTML = guessesLeft);
-const userGuessesElement = () => (document.getElementById('userGuesses').innerHTML = userGuesses);
+const guessesLeftElement = () => (document.getElementById('guesses-left').innerHTML = guessesLeft);
+const userGuessesElement = () => (document.getElementById('user-guesses').innerHTML = userGuesses);
 
 /**
  * @prop {Utility Functions}
  */
 
+const displayMessage = message => alert(message);
+
 /**
  * @prop {Event Listeners}
  */
 
+document.addEventListener('keypress', function(event) {
+  /**
+   * @FLOW
+   * user types a key
+
+
+   * check if the guess is correct
+   * else check if they can still play on #guesses
+   * if win/lose, update the correct state value AND reset the game
+   */
+  const userChoice = event.key.toLowerCase(); // always make my data consistent
+
+  if (!letters.includes(userChoice)) {
+    // exclude numbers and special chars
+    displayMessage('No special characters or numbers, please pick a letter from the alphabet');
+  } else if (userGuesses.includes(userChoice)) {
+    // exclude duplicates
+    displayMessage('Sorry, but you cannot choose the same letter twice.');
+  } else {
+    // take a turn
+
+    // * reduce the # of guesses
+    guessesLeft -= 1;
+
+    //* add the leter to the guesses array
+    userGuesses.push(userChoice);
+
+    // UPDATE MY UI
+    userGuessesElement();
+    guessesLeftElement();
+  }
+});
+
 const initializeGame = () => {
   console.log('STARTED');
+
+  /**
+   * A - First Load
+   *
+   *
+   * B after win/loss
+   */
+
+  winsElement();
+  lossesElement();
+  userGuessesElement();
+  guessesLeftElement();
 };
 
 // Start Game
