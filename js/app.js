@@ -97,8 +97,6 @@ document.addEventListener('keypress', function(event) {
 });
 
 const initializeGame = () => {
-  console.log('STARTED');
-
   /**
    * A - First Load
    *
